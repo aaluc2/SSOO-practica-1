@@ -10,10 +10,9 @@ int main(int argc, char *argv[]) {
     for (i = 0; i < count; i++)
     {
         fgets(buffer, 100, stdin);
+        printf(buffer);
     }
  
-
-    printf( "%s", buffer);
     return 0;
 
     printf("Se han recibido %d argumentos.\n", arg);

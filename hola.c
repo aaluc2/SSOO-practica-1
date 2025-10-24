@@ -2,7 +2,20 @@
 
 int main(int argc, char *argv[]) {
     int arg = argc - 1;
-    int x;
+    char buffer[100];
+    int i;
+    int count = 3;
+    printf("Escribe algo: ");
+
+    for (i = 0; i < count; i++)
+    {
+        fgets(buffer, 100, stdin);
+    }
+ 
+
+    printf( "%s", buffer);
+    return 0;
+
     printf("Se han recibido %d argumentos.\n", arg);
     if (argc == 1){
         printf("No se ha recibido ningun argumento\n");
@@ -12,7 +25,6 @@ int main(int argc, char *argv[]) {
     }
     printf("%d \n", argc);
     printf("Hola, aaluc!\n");
-    scanf("%d", &x);
-    printf("El numero es: %d\n", x);
+
     return 0;
 }

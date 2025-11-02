@@ -4,7 +4,7 @@
 #include <string.h>
 int main(int argc, char *argv[]){
    int N ; 
-   char error[]="Hola";
+   char error[]="Error: uso incorrecto.\nFormato valido: test -<funcion> [numero_de_lineas].\nSi no se especifica numero_de_lineas, se usaran 10 por defecto.\n";
    if (argc==1) {
     printf(error);
     exit(1);

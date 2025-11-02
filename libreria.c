@@ -2,21 +2,19 @@
 #include <stdlib.h>
 
 
-int head(const char *filename) {
-    int N = 3;
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        printf("Error al abrir el fichero");
-        return 1;
+int head(int N) {
+    if (N <= 0) {
+        printf("El numero de lineas debe ser mayor que 0.\n");
+        return 0; 
+    }
+    char buffer[1024];     
+    int contador = 0;
+
+    
+    while (contador < N && fgets(buffer, sizeof(buffer), stdin) != NULL) {
+        fputs(buffer, stdout);  
+        contador++;
     }
 
-    char buffer[1024];  // Tamaño máximo por línea
-    int count = 0;
-    while (count < N && fgets(buffer, sizeof(buffer), file)) {
-        printf("%s", buffer);
-        count++;
-    }
-
-    fclose(file);
     return 0;
 }

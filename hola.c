@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
         fgets(aalic, 100, stdin);
         printf(aalic);
     }
-    
+    //No
     printf("Se han recibido %d argumentos.\n", arg);
     if (argc == 1){
         printf("No se ha recibido ningun argumento\n");

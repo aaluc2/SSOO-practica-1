@@ -21,7 +21,7 @@ int head(int N) {
 }
 
 int tail(int N) {
- FILE *fp = fopen("ftail.txt", "w");
+    FILE *fp = fopen("ftail.txt", "w");
     if (!fp) {
         printf("Error al abrir el fichero para escritura");
         return 0;
@@ -39,21 +39,14 @@ int tail(int N) {
     fclose(fp);
 
     fp = fopen("ftail.txt", "r");
-    printf("Total de lineas leidas: %d\n", contador);
-    //Si total es 0 no tenemos nada que escribir y por eso se devuelve 0 directamente.
+
     total = contador - N;
-    printf("Lineas a omitir: %d\n", total);
 
     while (count < contador && fgets(buffer, sizeof(buffer), fp) != NULL) {
-        if (count < total)
-        {
-            count++;  
-        }else{
-            fputs(buffer, stdout);
-            count++;
+        if (count >= total){
+            fputs(buffer, stdout);  
         }
-        
-        
+        count++;        
     }
 
     return 0;

@@ -1,2 +1,5 @@
 .vscode/
 output/
+liblibreria.a
+libreria.o
+test

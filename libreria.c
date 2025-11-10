@@ -66,6 +66,7 @@ int head(int N) {
 int tail(int N) {
     //Variables locales
     char buffer[1024];
+    char *lineas[1024];
     int contador = 0;
     int total = 0;
     int count = 0;
@@ -76,27 +77,16 @@ int tail(int N) {
         return 9; 
     }
 
-    FILE *fp = fopen("ftail.txt", "w");
-    if (!fp) {
-        printf("Error al abrir el fichero para escritura");
-        return 10;
-    }
-
     //Lectura de entrada estándar
     while (fgets(buffer, sizeof(buffer), stdin) != NULL) {
-        fputs(buffer, fp);
+        lineas[contador] = strdup(buffer); //Guardamos la línea en el array 
         contador++;
     }
-    fclose(fp);
-
-    fp = fopen("ftail.txt", "r");
-
     //Ponemos en salida estándar las últimas líneas
     total = contador - N;
-
-    while (count < contador && fgets(buffer, sizeof(buffer), fp) != NULL) {
+    while (count < contador ) {
         if (count >= total){
-            fputs(buffer, stdout);  
+            fputs(lineas[count], stdout);  
         }
         count++;        
     }

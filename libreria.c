@@ -102,17 +102,17 @@ int longlines(int N) {
     size_t *top_longitudes =(size_t*) calloc(N, sizeof(size_t));
 
     //Comprobación reservas de memoria y parámetros pasados
+    if (N <= 0) {
+        printf("longlines: invalid trailing option -- %d.\n", N);
+        return 1;
+    }
+
     if (top_lineas == NULL || top_longitudes == NULL) {
         printf("Fallo al reservar memoria");
         free(top_lineas);
         free(top_longitudes);
         return 2;
     }  
-
-    if (N <= 0) {
-        printf("longlines: invalid trailing option -- %d.\n", N);
-        return 1;
-    }
 
     //Lectura entrada estándar para guardar en top_lineas las lineas más grandes
     while (fgets(buffer, 4096, stdin) != NULL) {

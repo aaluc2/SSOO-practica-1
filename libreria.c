@@ -96,10 +96,11 @@ int tail(int N) {
 
 int longlines(int N) {
     //Variables locales
-    int idx_reemplazar = 0;
-    char buffer[4096];
+    int idx_reemplazar;
+    char buffer[4096];x
     char **top_lineas = (char**)calloc(N, sizeof(char *)); //Array de punteros a char    
     size_t *top_longitudes =(size_t*) calloc(N, sizeof(size_t));
+    size_t len_actual;
 
     //Comprobación reservas de memoria y parámetros pasados
     if (N <= 0) {

@@ -66,7 +66,7 @@ int head(int N) {
 int tail(int N) {
     //Variables locales
     char buffer[1024];
-    char *lineas[1024];
+    char **lineas = (char**) malloc(N * sizeof(char)); 
     int contador = 0;
     int total = 0;
     int count = 0;
@@ -82,7 +82,7 @@ int tail(int N) {
         lineas[contador] = strdup(buffer); //Guardamos la línea en el array 
         contador++;
     }
-    //Ponemos en salida estándar las últimas líneas
+    //Imprimir las últimas N líneas leídas
     total = contador - N;
     while (count < contador ) {
         if (count >= total){
@@ -90,6 +90,7 @@ int tail(int N) {
         }
         count++;        
     }
+    free(lineas);
     //Correcta ejecución de la función, por lo que se usa return 0 para indicarlo
     return 0;
 }
@@ -97,7 +98,7 @@ int tail(int N) {
 int longlines(int N) {
     //Variables locales
     int idx_reemplazar;
-    char buffer[4096];x
+    char buffer[4096];
     char **top_lineas = (char**)calloc(N, sizeof(char *)); //Array de punteros a char    
     size_t *top_longitudes =(size_t*) calloc(N, sizeof(size_t));
     size_t len_actual;

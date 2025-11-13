@@ -90,6 +90,7 @@ int tail(int N) {
         }
         count++;        
     }
+    //Liberar memoria
     free(lineas);
     //Correcta ejecución de la función, por lo que se usa return 0 para indicarlo
     return 0;
